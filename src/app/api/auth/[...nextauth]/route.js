@@ -29,7 +29,6 @@ export const authOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        console.log(credentials);
         const email = credentials?.email;
         const password = credentials?.password;
 
@@ -49,6 +48,8 @@ export const authOptions = {
 
 export async function isAdmin() {
   const session = await getServerSession(authOptions);
+  console.log(session.user);
+  console.log(session.user.email);
   const userEmail = session?.user?.email;
   if (!userEmail) {
     return false;

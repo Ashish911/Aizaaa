@@ -2,11 +2,16 @@
 
 import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Bars2 from "../icons/Bars2";
 import ShoppingCart from "../icons/ShoppingCart";
 
 function AuthLinks({ status, userName }) {
+  useEffect(() => {
+    debugger;
+    console.log(status);
+    console.log(userName);
+  }, [status]);
   if (status === "authenticated") {
     return (
       <>
@@ -46,6 +51,10 @@ export default function Header() {
   if (userName && userName.includes(" ")) {
     userName = userName.split(" ")[0];
   }
+
+  useEffect(() => {
+    console.log(mobileNavOpen);
+  }, []);
 
   return (
     <header>
