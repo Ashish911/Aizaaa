@@ -7,11 +7,6 @@ import Bars2 from "../icons/Bars2";
 import ShoppingCart from "../icons/ShoppingCart";
 
 function AuthLinks({ status, userName }) {
-  useEffect(() => {
-    debugger;
-    console.log(status);
-    console.log(userName);
-  }, [status]);
   if (status === "authenticated") {
     return (
       <>
@@ -51,10 +46,6 @@ export default function Header() {
   if (userName && userName.includes(" ")) {
     userName = userName.split(" ")[0];
   }
-
-  useEffect(() => {
-    console.log(mobileNavOpen);
-  }, []);
 
   return (
     <header>

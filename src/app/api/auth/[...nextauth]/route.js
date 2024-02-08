@@ -48,8 +48,6 @@ export const authOptions = {
 
 export async function isAdmin() {
   const session = await getServerSession(authOptions);
-  console.log(session.user);
-  console.log(session.user.email);
   const userEmail = session?.user?.email;
   if (!userEmail) {
     return false;
